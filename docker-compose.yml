@@ -1,0 +1,26 @@
+# Subindo um container Mysql com Docker Compose
+# CanalYoutube:https://www.youtube.com/watch?v=HxPz3eLnXZk
+# LinkDocker-Hub Image mysql: https://hub.docker.com/_/mysql
+
+version: '3.1'
+
+services:
+    db:
+        # nomeando o container docker
+        container_name: sisreadxls-mysql
+        # baixando a imagem no docker-hub caso não exista na maquina hospedeira
+        image: mysql:5.7.31
+        # Esse comando séra executado assim que esse container estiver UP essa linha é recomendada
+        # na documentação do docker-hub conforme explicitado no cabeçalho desse arquivo. Nada mais 
+        # é que o plugin de autenticação que iremos utilizar com mysql. No mysql 8 a forma de 
+        # autenticação mudou e alguns drives ainda não dão suporte 
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+          - ./dbreadxls:/var/lib/mysql
+        # Caso aconteça algum problema com o container e pare o container será 
+        # reiniciado automaticamente
+        restart: always
+        ports: 
+            - '3308:3306'
