@@ -47,3 +47,17 @@ services:
 ```bash
 docker-compose up -d
 ```
+
+> Verificar se o container está rodando na máquina execute:
+
+```bash 
+docker ps
+```
+### Saída:
+
+```bash
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                                  NAMES
+8166550c624a   mysql:5.7.31   "docker-entrypoint.s…"   52 minutes ago   Up 52 minutes   33060/tcp, 0.0.0.0:3308->3306/tcp, :::3308->3306/tcp   sisreadxls-mysql
+
+
+```
