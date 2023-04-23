@@ -4,6 +4,8 @@
 
 [Link para a documentação oficial do mysql no docker hub](https://hub.docker.com/_/mysql)
 
+[Link Dicas mysql e docker resumo](https://www.youtube.com/watch?v=X8W5Xq9e2Os)
+
 1. O que é Docker?
 
 > O Docker é um software de código aberto usado para implantar aplicativos dentro de containers virtuais. A conteinerização permite que vários aplicativos funcionem em diferentes ambientes complexos. Por exemplo: o Docker permite executar o WordPress em sistemas Windows, Linux e macOS, sem problemas.
