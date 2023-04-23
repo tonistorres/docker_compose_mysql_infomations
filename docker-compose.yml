@@ -16,7 +16,8 @@ services:
         # autenticação mudou e alguns drives ainda não dão suporte 
         command: --default-authentication-plugin=mysql_native_password
         environment:
-            MYSQL_ROOT_PASSWORD: root
+        - MYSQL_ROOT_PASSWORD=1020
+        - MYSQL_DATABASE=dbreadxls
         volumes:
           - ./dbreadxls:/var/lib/mysql
         # Caso aconteça algum problema com o container e pare o container será 
