@@ -63,3 +63,79 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 
 
 ```
+
+### Sript SQL Manipulação do Banco de Dados:
+
+> Neste modelo PRIMEIRO criamos a tabela de Bairros(tbl_bairros). 
+
+```sql
+# Criando a Tabela de Bairros do Município
+CREATE TABLE
+    tbl_bairros(
+        id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+        bairro VARCHAR(80)
+    );
+```
+
+> SEGUNDO passo é criar a tabela de ruas já fazendo o relacionamento entre as duas tabelas.
+
+```sql
+# Criando a Tabela de Ruas do Município
+CREATE TABLE
+    tbl_ruas(
+        id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+        rua VARCHAR(80),
+        pkidbairro int,
+        CONSTRAINT fk_RuasBairros FOREIGN KEY(pkidbairro) REFERENCES tbl_bairros(id)
+    );
+```
+
+> TERCEIRO passo criar a tabela de usbs que terá dois relacionamento estrangeiros dentro dela.
+
+```sql
+# Criando a Tabela de cadastro das Usbs do Município
+CREATE TABLE
+    tbl_usbs(
+        id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+        nome VARCHAR(80),
+        pkidrua int,
+        pkidbairro int,
+        CONSTRAINT fk_UsbsBairros FOREIGN KEY(pkidbairro) REFERENCES tbl_bairros(id),
+        CONSTRAINT fk_UsbsRuas FOREIGN KEY(pkidrua) REFERENCES tbl_ruas(id)
+     );
+```
+
+> QUARTO passo é inserir alguns registros na tabela de bairros.
+
+```sql
+#*****************************************
+# 1- Inserindo dados iniciais na tabela #
+#*****************************************
+INSERT INTO tbl_bairros (bairro)VALUES('CENTRO');
+INSERT INTO tbl_bairros (bairro)VALUES('TUCUM');
+INSERT INTO tbl_bairros (bairro)VALUES('SANTO ANTONIO');    
+```
+
+> QUINTO passo é inserir alguns registros na tabela ruas.
+
+```sql
+#*****************************************
+# 2- Inserindo dados iniciais na tabela #
+#*****************************************
+INSERT INTO tbl_ruas (rua,pkidbairro)VALUES('TRAVESSA DICO VEIGA',1);
+INSERT INTO tbl_ruas (rua,pkidbairro)VALUES('SATUBAL',1);
+INSERT INTO tbl_ruas (rua,pkidbairro)VALUES('AVENIDA RODOVIARIA',1);
+INSERT INTO tbl_ruas (rua,pkidbairro)VALUES('COMERCIO',1);
+```
+
+> SEXTO passo é inserir alguns registros na tabela usbs.
+
+```sql
+#*****************************************
+# 3- Inserindo dados iniciais na tabela #
+#*****************************************
+INSERT INTO tbl_usbs (nome,pkidrua,pkidbairro)VALUES('DICO VEIGA',1,1);
+INSERT INTO tbl_usbs (nome,pkidrua,pkidbairro)VALUES('OZIMA VIEIRA',2,1);
+INSERT INTO tbl_usbs (nome,pkidrua,pkidbairro)VALUES('VILLE',3,1);
+
+```
