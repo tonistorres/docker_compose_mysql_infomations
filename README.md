@@ -64,6 +64,10 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS  
 
 ```
 
+![Logo Docker](./extensaovscode.png)
+
+> Para manipulação de dados SQL estou utilizando a extensão MySQL - Weijan Chen
+database-client.com - Database Client
 ### Sript SQL Manipulação do Banco de Dados:
 
 > Neste modelo PRIMEIRO criamos a tabela de Bairros(tbl_bairros). 
