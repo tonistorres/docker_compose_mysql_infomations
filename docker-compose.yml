@@ -1,6 +1,7 @@
 # Subindo um container Mysql com Docker Compose
 # CanalYoutube:https://www.youtube.com/watch?v=HxPz3eLnXZk
-# LinkDocker-Hub Image mysql: https://hub.docker.com/_/mysql
+# LinkDocker-Hub Image mysql: https://hub.docker.com/_/mysql  
+#https://www.youtube.com/watch?v=XUeu4ZzQNUI&list=PLOQgLBuj2-3LqnMYKZZgzeC7CKCPF375B&index=5&t=270s
 
 version: '3.1'
 
